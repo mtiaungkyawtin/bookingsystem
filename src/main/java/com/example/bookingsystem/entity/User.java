@@ -3,6 +3,7 @@ package com.example.bookingsystem.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -18,4 +19,10 @@ public class User {
     private String password;
     private String fullName;
     private String country;
+
+    @Column(name = "email_verified", nullable = false)
+    private boolean emailVerified = false;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime updatedAt = LocalDateTime.now();
 }

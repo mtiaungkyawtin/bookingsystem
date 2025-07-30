@@ -10,6 +10,8 @@ import java.util.UUID;
 @Table(name = "packages")
 public class Package {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
     private String name;
@@ -17,4 +19,7 @@ public class Package {
     private int credits;
     private double price;
     private int durationDays;
+
+    @Column(name = "is_active")
+    private boolean isActive = true;
 }
